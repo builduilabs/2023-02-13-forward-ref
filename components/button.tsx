@@ -1,73 +1,21 @@
-import { ComponentPropsWithRef, forwardRef } from "react";
+import { ReactNode } from "react";
 
-// export default forwardRef<
-//   HTMLButtonElement,
-//   ComponentPropsWithoutRef<"button">
-// >(function ButtonB({ children, onClick }, ref) {
-//   return (
-//     <button onClick={onClick} className="relative">
-//       <span>{children}</span>
-//       <span className="absolute inset-y-0 right-0"></span>
-//     </button>
-//   );
-// });
+type ButtonProps = {
+  prefix?: ReactNode;
+  onClick?: () => void;
+  children: ReactNode;
+};
 
-// export default function ButtonB({ children }: { children: ReactNode }) {
-//   return (
-//     <button className="relative">
-//       <span>{children}</span>
-//       <span className="absolute inset-y-0 right-0"></span>
-//     </button>
-//   );
-// }
+export default function Button({ prefix, onClick, children }: ButtonProps) {
+  console.log(prefix);
 
-// Step 1
-// type ButtonProps = {
-//   children: ReactNode;
-//   onClick?: () => void;
-// };
-
-// export default function ButtonB({ children, onClick }: ButtonProps) {
-//   return (
-//     <button className="relative" onClick={onClick}>
-//       <span>{children}</span>
-//       <span className="absolute inset-y-0 right-0"></span>
-//     </button>
-//   );
-// }
-
-// Step 2: forwardRef with explanation
-// type ButtonProps = {
-//   children: ReactNode;
-//   onClick?: () => void;
-// };
-
-// export default forwardRef<HTMLButtonElement, ButtonProps>(function ButtonB(
-//   { children, onClick },
-//   ref
-// ) {
-//   return (
-//     <button ref={ref} className="relative" onClick={onClick}>
-//       <span>{children}</span>
-//       <span className="absolute inset-y-0 right-0"></span>
-//     </button>
-//   );
-// });
-
-// {
-//   /* <ClassComponent ref={ref} */
-// }
-
-// Step 3: all props
-export default forwardRef<HTMLButtonElement, ComponentPropsWithRef<"button">>(
-  function Button({ children, ...rest }, ref) {
-    return (
-      <div className="relative inline-block">
-        <button ref={ref} {...rest}>
-          <span>{children}</span>
-          <span></span>
-        </button>
-      </div>
-    );
-  }
-);
+  return (
+    <button
+      onClick={onClick}
+      className="inline-flex items-center rounded bg-purple-600 px-2 py-1 text-xs font-semibold text-white transition hover:bg-purple-500 active:bg-purple-500/90"
+    >
+      {prefix && <span className="mr-0.5 -ml-0.5 h-5 w-5">{prefix}</span>}
+      <span>{children}</span>
+    </button>
+  );
+}

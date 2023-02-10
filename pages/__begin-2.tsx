@@ -1,4 +1,3 @@
-// This should be beginning.
 import {
   BanknotesIcon,
   BuildingOfficeIcon,
@@ -9,7 +8,7 @@ import * as Popover from "@radix-ui/react-popover";
 export default function Index() {
   return (
     <div className="flex h-screen flex-col items-start justify-start">
-      <header className="flex w-full justify-between border-b border-gray-700 bg-gray-800 p-6 text-sm font-medium text-gray-200">
+      <header className="flex h-20 w-full justify-between border-b border-gray-700 bg-gray-800 px-6 text-sm font-medium text-gray-200">
         <div className="flex items-center space-x-4">
           <a href="#" className="text-xl">
             <BuildingOfficeIcon className="h-6 w-6" />
@@ -18,9 +17,8 @@ export default function Index() {
         </div>
         <div className="flex items-center">
           <Popover.Root>
-            <Popover.Trigger asChild>
-              <button>+ New invoice</button>
-            </Popover.Trigger>
+            <Popover.Trigger>+ New invoice</Popover.Trigger>
+
             <Popover.Portal>
               <Popover.Content
                 sideOffset={8}
@@ -34,7 +32,7 @@ export default function Index() {
                     <p className="text-lg font-semibold">New invoice</p>
                   </div>
 
-                  <Popover.Close className="PopoverClose" aria-label="Close">
+                  <Popover.Close className="PopoverClose">
                     <XMarkIcon className="h-6 w-6 opacity-25" />
                   </Popover.Close>
                 </div>

@@ -1,4 +1,4 @@
-Step 1
+# 🟢 Begin
 
 ```jsx
 type ButtonProps = {
@@ -15,6 +15,18 @@ export default function ButtonB({ children, onClick }: ButtonProps) {
   );
 }
 ```
+
+# 🟢 Step
+
+Add our UI button:
+
+```jsx
+<Popover.Trigger>
+  <Button prefix={<PlusIcon />}>New invoice</Button>
+</Popover.Trigger>
+```
+
+error, hydration. asChild.
 
 Step 2: forwardRef with explanation
 
