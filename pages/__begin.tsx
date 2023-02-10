@@ -3,7 +3,6 @@ import {
   BuildingOfficeIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
-import { PlusIcon } from "@heroicons/react/20/solid";
 import * as Popover from "@radix-ui/react-popover";
 
 export default function Index() {
@@ -20,7 +19,7 @@ export default function Index() {
           <div className="flex items-center">
             <Popover.Root>
               <Popover.Trigger className="data-[state=open]:opacity-50">
-                <PlusIcon /> New invoice
+                + New invoice
               </Popover.Trigger>
               <Popover.Portal>
                 <Popover.Content

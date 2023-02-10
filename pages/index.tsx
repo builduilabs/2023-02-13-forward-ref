@@ -1,10 +1,8 @@
-import Button from "@/components/button";
 import {
   BanknotesIcon,
   BuildingOfficeIcon,
   XMarkIcon,
 } from "@heroicons/react/24/solid";
-import { PlusIcon } from "@heroicons/react/20/solid";
 import * as Popover from "@radix-ui/react-popover";
 
 export default function Index() {
@@ -20,8 +18,8 @@ export default function Index() {
           </div>
           <div className="flex items-center">
             <Popover.Root>
-              <Popover.Trigger className="data-[state=open]:opacity-50" asChild>
-                <Button leading={<PlusIcon />}>New invoice</Button>
+              <Popover.Trigger className="data-[state=open]:opacity-50">
+                + New invoice
               </Popover.Trigger>
               <Popover.Portal>
                 <Popover.Content
