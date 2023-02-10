@@ -1,3 +1,5 @@
+import Button from "@/components/button";
+import { PlusIcon } from "@heroicons/react/20/solid";
 import {
   BanknotesIcon,
   BuildingOfficeIcon,
@@ -18,8 +20,8 @@ export default function Index() {
           </div>
           <div className="flex items-center">
             <Popover.Root>
-              <Popover.Trigger className="data-[state=open]:opacity-50">
-                + New invoice
+              <Popover.Trigger asChild className="data-[state=open]:opacity-50">
+                <Button leading={<PlusIcon />}>New invoice</Button>
               </Popover.Trigger>
 
               <Popover.Portal>
