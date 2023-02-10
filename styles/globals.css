@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply bg-gray-100;
+}
+
+body {
+  @apply relative scale-75 p-20;
+}
