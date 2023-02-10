@@ -21,6 +21,7 @@ export default function Index() {
               <Popover.Trigger className="data-[state=open]:opacity-50">
                 + New invoice
               </Popover.Trigger>
+
               <Popover.Portal>
                 <Popover.Content
                   sideOffset={8}
