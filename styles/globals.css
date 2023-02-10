@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 html {
-  @apply bg-gray-100;
+  @apply bg-gray-900 text-gray-200 antialiased;
 }
 
 body {
-  @apply relative scale-75 p-20;
+  /* @apply relative scale-75 p-20; */
 }

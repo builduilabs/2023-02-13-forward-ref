@@ -1,64 +1,73 @@
-import { motion, useAnimationControls } from "framer-motion";
-import {
-  ComponentPropsWithoutRef,
-  forwardRef,
-  HTMLProps,
-  ReactNode,
-  RefObject,
-  useRef,
-} from "react";
-import { FocusRing, useButton } from "react-aria";
+import { ComponentPropsWithRef, forwardRef } from "react";
 
-let f = () => {};
+// export default forwardRef<
+//   HTMLButtonElement,
+//   ComponentPropsWithoutRef<"button">
+// >(function ButtonB({ children, onClick }, ref) {
+//   return (
+//     <button onClick={onClick} className="relative">
+//       <span>{children}</span>
+//       <span className="absolute inset-y-0 right-0"></span>
+//     </button>
+//   );
+// });
 
-export default forwardRef(function Button(
-  // props: HTMLProps<HTMLButtonElement>,
-  props: ComponentPropsWithoutRef<"button">,
-  ref
-) {
-  let controls = useAnimationControls();
-  let onClick = props.onClick !== undefined ? props.onClick : f;
-  let localRef = useRef(null);
+// export default function ButtonB({ children }: { children: ReactNode }) {
+//   return (
+//     <button className="relative">
+//       <span>{children}</span>
+//       <span className="absolute inset-y-0 right-0"></span>
+//     </button>
+//   );
+// }
 
-  // ref = localRef;
-  props.onAnimationStart;
-  // console.log({ props });
+// Step 1
+// type ButtonProps = {
+//   children: ReactNode;
+//   onClick?: () => void;
+// };
 
-  let { buttonProps } = useButton(
-    {
-      onPressStart: () => {
-        controls.stop();
-        controls.set({ background: "#757376" });
-      },
-      onPressEnd: () => {
-        controls.start({
-          background: "#353336",
-          transition: { duration: 0.4 },
-        });
-      },
-      onPress: (e) => {
-        onClick(e);
-        controls.start({
-          background: [null, "#353336"],
-          transition: { duration: 0.4 },
-        });
-      },
-    },
-    ref
-  );
+// export default function ButtonB({ children, onClick }: ButtonProps) {
+//   return (
+//     <button className="relative" onClick={onClick}>
+//       <span>{children}</span>
+//       <span className="absolute inset-y-0 right-0"></span>
+//     </button>
+//   );
+// }
 
-  return (
-    <FocusRing focusRingClass="ring ring-offset-2 ring-offset-black">
-      <motion.button
-        {...props}
-        {...buttonProps}
-        ref={ref}
-        animate={controls}
-        className="h-20 w-20 touch-none select-none rounded-full bg-[#353336] text-white focus:outline-none"
-        style={{
-          WebkitTapHighlightColor: "transparent",
-        }}
-      />
-    </FocusRing>
-  );
-});
+// Step 2: forwardRef with explanation
+// type ButtonProps = {
+//   children: ReactNode;
+//   onClick?: () => void;
+// };
+
+// export default forwardRef<HTMLButtonElement, ButtonProps>(function ButtonB(
+//   { children, onClick },
+//   ref
+// ) {
+//   return (
+//     <button ref={ref} className="relative" onClick={onClick}>
+//       <span>{children}</span>
+//       <span className="absolute inset-y-0 right-0"></span>
+//     </button>
+//   );
+// });
+
+// {
+//   /* <ClassComponent ref={ref} */
+// }
+
+// Step 3: all props
+export default forwardRef<HTMLButtonElement, ComponentPropsWithRef<"button">>(
+  function Button({ children, ...rest }, ref) {
+    return (
+      <div className="relative inline-block">
+        <button ref={ref} {...rest}>
+          <span>{children}</span>
+          <span></span>
+        </button>
+      </div>
+    );
+  }
+);

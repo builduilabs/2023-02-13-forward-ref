@@ -1,3 +1,4 @@
+// This should be beginning.
 import {
   BanknotesIcon,
   BuildingOfficeIcon,
