@@ -21,8 +21,7 @@ export default function Index() {
           <div className="flex items-center">
             <Popover.Root>
               <Popover.Trigger asChild>
-                {/* <Button prefix={<PlusIcon />}>New invoice</Button> */}
-                <button>+ New invoice</button>
+                <Button prefix={<PlusIcon />}>New invoice</Button>
               </Popover.Trigger>
               <Popover.Portal>
                 <Popover.Content

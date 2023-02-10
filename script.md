@@ -28,7 +28,9 @@ Add our UI button:
 
 error, hydration. asChild.
 
-Step 2: forwardRef with explanation
+# 🟢 Step
+
+forwardRef. Add with explanation
 
 ```jsx
 type ButtonProps = {
