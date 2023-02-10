@@ -20,8 +20,8 @@ export default function Index() {
           </div>
           <div className="flex items-center">
             <Popover.Root>
-              <Popover.Trigger asChild>
-                <Button prefix={<PlusIcon />}>New invoice</Button>
+              <Popover.Trigger className="data-[state=open]:opacity-50" asChild>
+                <Button leading={<PlusIcon />}>New invoice</Button>
               </Popover.Trigger>
               <Popover.Portal>
                 <Popover.Content
